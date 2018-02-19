@@ -1,4 +1,5 @@
-package hello;
+package gash;
+
 
 public class Greeting {
 
