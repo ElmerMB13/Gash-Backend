@@ -3,6 +3,8 @@ package gash.driver;
 
 import javax.persistence.Id;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
@@ -18,6 +20,7 @@ import java.util.Date;
 public class Driver
 {
      @Id
+     @GeneratedValue(strategy=GenerationType.AUTO)
      int driverId;
      int scheduleId;
      int truckId;
@@ -26,10 +29,10 @@ public class Driver
      String driverNationalId;
      String driverName;
      String driverTelephoneNumber;
-     Date driverBirthDate;
+     String driverBirthDate;
      Date lastUpdatedDateTime;
 
-     public Driver(String driverNationalId, String driverName, Date birthDate, String telephoneNumber)
+     public Driver(String driverNationalId, String driverName, String birthDate, String telephoneNumber)
      {
          this.driverNationalId=driverNationalId;
          this.driverName= driverName;
