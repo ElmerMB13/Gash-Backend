@@ -14,7 +14,8 @@ import java.util.Date;
 
 
 //@OneToMany(mappedBy="match_participant_id")
-
+@XmlRootElement
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 @Entity
 @Table(name="driver", schema = "public")
 public class Driver

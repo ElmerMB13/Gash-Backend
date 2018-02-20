@@ -38,4 +38,25 @@ public class DriverController
         }
         return modelAndView;
     }
+
+    //@RequestMapping(value="/getDrivers", method = RequestMethod.GET)
+    //public String printWelcome(ModelMap model) {
+	//	return "dropDown";
+	//}
+
+    @RequestMapping(value = "/getDrivers", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    @ResponseStatus(HttpStatus.OK)
+    public @ResponseBody List<Driver> getDrivers()
+    {
+        List<Driver> driverList = new List();
+        try
+        { 
+            driverList = driverService.getDrivers();
+        }
+        catch(Exception e)
+        {
+            throw e;
+        }
+        return driverList;
+    }
 }

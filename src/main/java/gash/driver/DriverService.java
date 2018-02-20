@@ -16,7 +16,7 @@ public class DriverService {
         return driver;
     }
 
-    public Iterable<Driver> getStudents(){
+    public Iterable<Driver> getDrivers(){
         return driverRepository.findAll();
     }
 }
