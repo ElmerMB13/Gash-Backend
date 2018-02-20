@@ -20,23 +20,29 @@ import java.util.Date;
 public class Driver
 {
      @Id
-     @GeneratedValue(strategy=GenerationType.AUTO)
+     @GeneratedValue(strategy=GenerationType.IDENTITY)
      int driverId;
-     int scheduleId;
-     int truckId;
-     int routeId;
-     int invoiceId;
+     Integer scheduleId;
+     Integer truckId;
+     Integer routeId;
+     Integer invoiceId;
      String driverNationalId;
      String driverName;
      String driverTelephoneNumber;
      String driverBirthDate;
      Date lastUpdatedDateTime;
 
+     public Driver(){}
      public Driver(String driverNationalId, String driverName, String birthDate, String telephoneNumber)
      {
          this.driverNationalId=driverNationalId;
          this.driverName= driverName;
          this.driverBirthDate=birthDate;
          this.driverTelephoneNumber=telephoneNumber;
+         this.scheduleId=null;
+         this.truckId=null;
+         this.routeId=null;
+         this.invoiceId=null;
+         
      }
 }

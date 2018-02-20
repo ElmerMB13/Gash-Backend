@@ -19,16 +19,15 @@ import java.util.Date;
 @RestController
 public class DriverController
 {
-
+    @Autowired
+    private DriverService driverService;
     @RequestMapping("/addDriver")
-    public ModelAndView addDriver(@RequestParam String name, @RequestParam String nationalId, @RequestParam String birthDate, @RequestParam String telephoneNumber)
+    public ModelAndView addDriver(@RequestParam(value="driverName") String driverName, @RequestParam String nationalId, @RequestParam String birthDate, @RequestParam String telephoneNumber)
     {
-        System.out.println("enta a java");
         ModelAndView modelAndView = new ModelAndView("driver");
-        DriverService driverService = new DriverService();
-        Driver driver = new Driver(nationalId,name,birthDate, telephoneNumber);
+        Driver driver = new Driver(nationalId,driverName,birthDate, telephoneNumber);
         try
-        {   
+        { 
             driver=driverService.addDriver(driver);
             modelAndView.addObject("message","Driver added: "+ driver.driverName);
         }
