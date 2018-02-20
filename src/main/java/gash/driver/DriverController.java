@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -17,12 +16,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.springframework.ui.Model;
 
 @RestController
-public class DriverController extends SimpleFormController
+public class DriverController 
 {
     @Autowired
     private DriverService driverService;
@@ -45,13 +42,13 @@ public class DriverController extends SimpleFormController
     }
 
     @RequestMapping(value = "/create-schedule", method = RequestMethod.GET)
-    @ModelAttribute("alldrivers")
-    public List<Driver> getDrivers()
+    public Iterable<Driver> getDrivers()
     {
-        List<Driver> driverList = new List();
+        Iterable<Driver> driverList;
         try
         { 
             driverList = driverService.getDrivers();
+
         }
         catch(Exception e)
         {
