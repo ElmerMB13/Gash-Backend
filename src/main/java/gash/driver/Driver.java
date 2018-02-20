@@ -1,8 +1,6 @@
 package gash.driver;
 
 import java.util.List;
-import javax.xml.bind.annotation.XmlRootElement;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +14,6 @@ import java.util.Date;
 
 
 //@OneToMany(mappedBy="match_participant_id")
-@XmlRootElement
-@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 @Entity
 @Table(name="driver", schema = "public")
 public class Driver

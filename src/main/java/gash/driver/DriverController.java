@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -20,7 +22,7 @@ import java.util.List;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @RestController
-public class DriverController
+public class DriverController extends SimpleFormController
 {
     @Autowired
     private DriverService driverService;
@@ -42,14 +44,9 @@ public class DriverController
         return modelAndView;
     }
 
-    //@RequestMapping(value="/getDrivers", method = RequestMethod.GET)
-    //public String printWelcome(ModelMap model) {
-	//	return "dropDown";
-	//}
-
-    @RequestMapping(value = "/getDrivers", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody List<Driver> getDrivers()
+    @RequestMapping(value = "/create-schedule", method = RequestMethod.GET)
+    @ModelAttribute("alldrivers")
+    public List<Driver> getDrivers()
     {
         List<Driver> driverList = new List();
         try
