@@ -23,6 +23,7 @@ public class DriverController
 {
     @Autowired
     private DriverService driverService;
+
     @RequestMapping("/addDriver")
     public ModelAndView addDriver(@RequestParam(value="driverName") String driverName, @RequestParam String nationalId, @RequestParam String birthDate, @RequestParam String telephoneNumber)
     {
@@ -41,19 +42,16 @@ public class DriverController
         return modelAndView;
     }
 
-    @RequestMapping(value = "/create-schedule", method = RequestMethod.GET)
+    @RequestMapping("/getDrivers")
     public Iterable<Driver> getDrivers()
     {
-        Iterable<Driver> driverList;
         try
         { 
-            driverList = driverService.getDrivers();
-
+             return driverService.getDrivers();
         }
         catch(Exception e)
         {
             throw e;
         }
-        return driverList;
     }
 }
