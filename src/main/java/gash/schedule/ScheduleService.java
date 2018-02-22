@@ -8,10 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement; 
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 import javassist.compiler.ast.Stmnt;
 
-
+@Service
 public class ScheduleService
 {
 

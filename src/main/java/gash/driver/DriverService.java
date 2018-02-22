@@ -10,8 +10,6 @@ public class DriverService {
     DriverRepository driverRepository;
 
     public Driver addDriver(Driver driver) {
-        System.out.println(driverRepository);
-        System.out.println(driver.driverName);
         driverRepository.save(driver);
         return driver;
     }

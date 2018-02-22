@@ -18,21 +18,20 @@ public class Schedule
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     int scheduleId;
-    String mondayEntrance;
-    String tuesdayEntrance;
-    String wednesdayEntrance;
-    String thursdayEntrance;
-    String fridayEntrance;
-    String saturdayEntrance;
-    String sundayEntrance;
-    String mondayOut;
-    String tuesdayOut;
-    String wednesdayOut;
-    String thursdayOut;
-    String fridayOut;
-    String saturdayOut;
-    String sundayOut;
-    
+    Date mondayEntrance;
+    Date tuesdayEntrance;
+    Date wednesdayEntrance;
+    Date thursdayEntrance;
+    Date fridayEntrance;
+    Date saturdayEntrance;
+    Date sundayEntrance;
+    Date mondayOut;
+    Date tuesdayOut;
+    Date wednesdayOut;
+    Date thursdayOut;
+    Date fridayOut;
+    Date saturdayOut;
+    Date sundayOut;
     Date lastUpdatedDateTime;
     
     

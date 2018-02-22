@@ -30,7 +30,7 @@ public class Driver
      String driverName;
      String driverTelephoneNumber;
      String driverBirthDate;
-     Date lastUpdatedDateTime;
+     Date lastUpdatedDateTime;  
 
      public Driver(){}
      public Driver(String driverNationalId, String driverName, String birthDate, String telephoneNumber)

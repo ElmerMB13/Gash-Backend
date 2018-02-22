@@ -1,5 +1,9 @@
 package gash.schedule;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import org.apache.juli.DateFormatCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,20 +25,21 @@ public class ScheduleController
     {
         ModelAndView modelAndView = new ModelAndView("driver");
         Schedule schedule = new Schedule();
-        schedule.mondayEntrance=mondayEntrance;
-        schedule.tuesdayEntrance=tuesdayEntrance;
-        schedule.wednesdayEntrance=wednesdayEntrance;
-        schedule.thursdayEntrance=thursdayEntrance;
-        schedule.fridayEntrance=fridayEntrance;
-        schedule.saturdayEntrance=saturdayEntrance;
-        schedule.sundayEntrance=sundayEntrance;
-        schedule.mondayOut=mondayOut;
-        schedule.tuesdayOut=tuesdayOut;
-        schedule.wednesdayOut=wednesdayOut;
-        schedule.thursdayOut=thursdayOut;
-        schedule.fridayOut=fridayOut;
-        schedule.saturdayOut=saturdayOut;
-        schedule.sundayOut=sundayOut;
+        DateFormat df= new SimpleDateFormat("hh:mm");
+        schedule.mondayEntrance=  df.parse(mondayEntrance);
+        schedule.tuesdayEntrance= df.parse(tuesdayEntrance);
+        schedule.wednesdayEntrance=df.parse(wednesdayEntrance);
+        schedule.thursdayEntrance=df.parse(thursdayEntrance);
+        schedule.fridayEntrance=df.parse(fridayEntrance);
+        schedule.saturdayEntrance=df.parse(saturdayEntrance);
+        schedule.sundayEntrance=df.parse(sundayEntrance);
+        schedule.mondayOut=df.parse(mondayOut);
+        schedule.tuesdayOut=df.parse(tuesdayOut);
+        schedule.wednesdayOut=df.parse(wednesdayOut);
+        schedule.thursdayOut=df.parse(thursdayOut);
+        schedule.fridayOut=df.parse(fridayOut);
+        schedule.saturdayOut=df.parse(saturdayOut);
+        schedule.sundayOut=df.parse(sundayOut);
         try
         { 
             schedule=scheduleService.addSchedule(schedule, nationalId);
