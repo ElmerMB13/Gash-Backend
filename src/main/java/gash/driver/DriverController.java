@@ -8,20 +8,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.ArrayList;
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import org.springframework.ui.Model;
 
 @RestController
-public class DriverController
+public class DriverController 
 {
     @Autowired
     private DriverService driverService;
-    
+
     @RequestMapping("/addDriver")
     public ModelAndView addDriver(@RequestParam(value="driverName") String driverName, @RequestParam String nationalId, @RequestParam String birthDate, @RequestParam String telephoneNumber)
     {
@@ -38,5 +44,23 @@ public class DriverController
             throw e;
         }
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/getDrivers", method = RequestMethod.GET)
+    public String getDrivers()
+    {
+        ArrayList<Driver> driversList = new ArrayList<Driver>();
+        try
+        { 
+            Gson gson = new Gson();
+            driversList = driverService.getDrivers();
+            String json=gson.toJson(driversList);
+            return json;
+        }
+        catch(Exception e)
+        {
+            throw e;
+        }
+        ///return driversList;
     }
 }

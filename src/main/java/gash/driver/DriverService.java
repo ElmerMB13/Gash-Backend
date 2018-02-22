@@ -2,6 +2,7 @@ package gash.driver;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.ArrayList;
 
 @Service
 public class DriverService {
@@ -14,7 +15,13 @@ public class DriverService {
         return driver;
     }
 
-    public Iterable<Driver> getStudents(){
-        return driverRepository.findAll();
+    public ArrayList<Driver> getDrivers(){
+        ArrayList<Driver> driversList = new ArrayList<Driver>();
+        //driversList = driverRepository.findAll();
+        for(Driver driver : driverRepository.findAll()){
+           System.out.println(driver.driverName);
+            driversList.add(driver);
+        }
+        return driversList;
     }
 }

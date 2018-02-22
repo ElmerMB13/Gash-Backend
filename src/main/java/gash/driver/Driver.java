@@ -1,6 +1,6 @@
 package gash.driver;
 
-
+import java.util.List;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +14,6 @@ import java.util.Date;
 
 
 //@OneToMany(mappedBy="match_participant_id")
-
 @Entity
 @Table(name="driver", schema = "public")
 public class Driver
