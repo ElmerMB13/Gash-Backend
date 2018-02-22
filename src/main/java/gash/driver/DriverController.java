@@ -15,6 +15,10 @@ import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.ArrayList;
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.springframework.ui.Model;
 
@@ -42,16 +46,21 @@ public class DriverController
         return modelAndView;
     }
 
-    @RequestMapping("/getDrivers")
-    public Iterable<Driver> getDrivers()
+    @RequestMapping(value = "/getDrivers", method = RequestMethod.GET)
+    public String getDrivers()
     {
+        ArrayList<Driver> driversList = new ArrayList<Driver>();
         try
         { 
-             return driverService.getDrivers();
+            Gson gson = new Gson();
+            driversList = driverService.getDrivers();
+            String json=gson.toJson(driversList);
+            return json;
         }
         catch(Exception e)
         {
             throw e;
         }
+        ///return driversList;
     }
 }
