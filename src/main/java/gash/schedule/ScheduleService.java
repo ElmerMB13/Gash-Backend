@@ -19,7 +19,7 @@ public class ScheduleService
     ScheduleRepository scheduleRepository;
     Connection conn= null;
     
-    public Schedule addSchedule(Schedule schedule, String nationalId) throws ClassNotFoundException, SQLException {
+    public Schedule addSchedule(Schedule schedule, int driverId) throws ClassNotFoundException, SQLException {
         Class.forName("org.h2.Driver");
         conn = DriverManager.getConnection("jdbc:h2:~/GashDB", "sa","");
         Statement st= conn.createStatement();
@@ -33,7 +33,7 @@ public class ScheduleService
             scheduleId= rs.getInt("schedule_Id");
         }*/
         //rs.close();
-        String updateDriver= "update Driver set schedule_id="+schedule.scheduleId+"where driver_national_id="+nationalId;
+        String updateDriver= "update Driver set schedule_id="+schedule.scheduleId+"where driver_id="+driverId;
         st.executeUpdate(updateDriver);
         return schedule;
     }   
