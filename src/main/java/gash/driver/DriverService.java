@@ -19,7 +19,6 @@ public class DriverService {
         ArrayList<Driver> driversList = new ArrayList<Driver>();
         //driversList = driverRepository.findAll();
         for(Driver driver : driverRepository.findAll()){
-           System.out.println(driver.driverName);
             driversList.add(driver);
         }
         return driversList;
