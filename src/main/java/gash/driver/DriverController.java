@@ -35,7 +35,7 @@ public class DriverController
         System.out.println(truckId);
         ModelAndView modelAndView = new ModelAndView("driver");
         Driver driver = new Driver(nationalId, driverName, birthDate, telephoneNumber);
-        driver.truck.setTruckId(truckId);
+        //driver.truck.setTruckId(truckId);
         try
         {
             driver = driverService.addDriver(driver);

@@ -1,6 +1,5 @@
 package gash.driver;
 
-import gash.truck.Truck;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,10 +20,6 @@ public class Driver
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     int driverId;
     Integer scheduleId;
-    @OneToOne
-    @JoinColumn(name="truckId")
-    @MapsId
-    Truck truck;
     Integer routeId;
     Integer invoiceId;
     String driverNationalId;
@@ -41,7 +36,6 @@ public class Driver
          this.driverBirthDate = birthDate;
          this.driverTelephoneNumber = telephoneNumber;
          this.scheduleId = null;
-         this.truck= null;
          this.routeId = null;
          this.invoiceId = null;
          
