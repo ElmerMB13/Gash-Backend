@@ -23,19 +23,22 @@ import com.google.gson.GsonBuilder;
 import org.springframework.ui.Model;
 
 @RestController
-public class DriverController 
+public class DriverController
 {
     @Autowired
     private DriverService driverService;
 
     @RequestMapping("/addDriver")
-    public ModelAndView addDriver(@RequestParam(value="driverName") String driverName, @RequestParam String nationalId, @RequestParam String birthDate, @RequestParam String telephoneNumber)
+    public ModelAndView addDriver(@RequestParam(value="driverName") String driverName, @RequestParam String nationalId,
+    @RequestParam String birthDate, @RequestParam String telephoneNumber, @RequestParam Integer truckId)
     {
+        System.out.println(truckId);
         ModelAndView modelAndView = new ModelAndView("driver");
-        Driver driver = new Driver(nationalId,driverName,birthDate, telephoneNumber);
+        Driver driver = new Driver(nationalId, driverName, birthDate, telephoneNumber);
+        driver.truck.setTruckId(truckId);
         try
-        { 
-            driver=driverService.addDriver(driver);
+        {
+            driver = driverService.addDriver(driver);
             modelAndView.addObject("message","Driver added: "+ driver.driverName);
         }
         catch(Exception e)
@@ -49,9 +52,9 @@ public class DriverController
     @RequestMapping(value = "/getDrivers", method = RequestMethod.GET)
     public String getDrivers()
     {
-        ArrayList<Driver> driversList = new ArrayList<Driver>();
+        ArrayList<Driver> driversList = new ArrayList<>();
         try
-        { 
+        {
             Gson gson = new Gson();
             driversList = driverService.getDrivers();
             String json=gson.toJson(driversList);

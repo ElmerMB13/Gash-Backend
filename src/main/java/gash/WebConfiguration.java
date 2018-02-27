@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.context.annotation.Configuration;
 import javax.servlet.*;
-import java.util.Arrays;
 
 @Configuration
 public class WebConfiguration implements ServletContextInitializer {

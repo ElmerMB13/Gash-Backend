@@ -1,47 +1,49 @@
 package gash.driver;
 
-import java.util.List;
+import gash.truck.Truck;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
-import javax.persistence.OneToMany;
-import javax.persistence.Transient;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import javax.persistence.MapsId;
+
 import java.util.Date;
 
 
-//@OneToMany(mappedBy="match_participant_id")
 @Entity
 @Table(name="driver", schema = "public")
 public class Driver
 {
-     @Id
-     @GeneratedValue(strategy=GenerationType.IDENTITY)
-     int driverId;
-     Integer scheduleId;
-     Integer truckId;
-     Integer routeId;
-     Integer invoiceId;
-     String driverNationalId;
-     String driverName;
-     String driverTelephoneNumber;
-     String driverBirthDate;
-     Date lastUpdatedDateTime;  
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    int driverId;
+    Integer scheduleId;
+    @OneToOne
+    @JoinColumn(name="truckId")
+    @MapsId
+    Truck truck;
+    Integer routeId;
+    Integer invoiceId;
+    String driverNationalId;
+    String driverName;
+    String driverTelephoneNumber;
+    String driverBirthDate;
+    Date lastUpdatedDateTime;  
 
      public Driver(){}
      public Driver(String driverNationalId, String driverName, String birthDate, String telephoneNumber)
      {
-         this.driverNationalId=driverNationalId;
-         this.driverName= driverName;
-         this.driverBirthDate=birthDate;
-         this.driverTelephoneNumber=telephoneNumber;
-         this.scheduleId=null;
-         this.truckId=null;
-         this.routeId=null;
-         this.invoiceId=null;
+         this.driverNationalId = driverNationalId;
+         this.driverName = driverName;
+         this.driverBirthDate = birthDate;
+         this.driverTelephoneNumber = telephoneNumber;
+         this.scheduleId = null;
+         this.truck= null;
+         this.routeId = null;
+         this.invoiceId = null;
          
      }
 }
