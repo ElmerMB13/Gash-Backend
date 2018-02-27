@@ -32,7 +32,6 @@ public class DriverController
     public ModelAndView addDriver(@RequestParam(value="driverName") String driverName, @RequestParam String nationalId,
     @RequestParam String birthDate, @RequestParam String telephoneNumber, @RequestParam Integer truckId)
     {
-        System.out.println(truckId);
         ModelAndView modelAndView = new ModelAndView("driver");
         Driver driver = new Driver(nationalId, driverName, birthDate, telephoneNumber);
         driver.truck.setTruckId(truckId);
@@ -57,7 +56,7 @@ public class DriverController
         {
             Gson gson = new Gson();
             driversList = driverService.getDrivers();
-            String json=gson.toJson(driversList);
+            String json = gson.toJson(driversList);
             return json;
         }
         catch(Exception e)

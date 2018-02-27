@@ -16,7 +16,7 @@ import java.util.Date;
 public class Schedule
 {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue
     int scheduleId;
     Date mondayEntrance;
     Date tuesdayEntrance;
@@ -32,6 +32,6 @@ public class Schedule
     Date saturdayOut;
     Date sundayOut;
     Date lastUpdatedDateTime;
-    
-    
+
+
 }

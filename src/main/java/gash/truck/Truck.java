@@ -15,13 +15,14 @@ import javax.persistence.Column;
 public class Truck
 {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer truckId;
     private String truckNumber;
     private String truckMake;
     private String truckModel;
     private int truckYear;
-    private Date lastUpdatedDateTime;  
+    @Column(nullable = true)
+    private Date lastUpdatedDateTime;
 
     public Integer getTruckId() {
         return truckId;
