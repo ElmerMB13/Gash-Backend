@@ -21,7 +21,7 @@ public class ScheduleController
     public ModelAndView addSchedule(@RequestParam String mondayEntrance, @RequestParam String tuesdayEntrance, @RequestParam String wednesdayEntrance, 
     @RequestParam String thursdayEntrance, @RequestParam String fridayEntrance, @RequestParam String saturdayEntrance, @RequestParam String sundayEntrance, 
     @RequestParam String mondayOut, @RequestParam String tuesdayOut, @RequestParam String wednesdayOut, @RequestParam String thursdayOut, 
-    @RequestParam String fridayOut, @RequestParam String saturdayOut, @RequestParam String sundayOut, @RequestParam int  driverId) throws Exception
+    @RequestParam String fridayOut, @RequestParam String saturdayOut, @RequestParam String sundayOut, @RequestParam String  nationalId) throws Exception
     {
         ModelAndView modelAndView = new ModelAndView("driver");
         Schedule schedule = new Schedule();
@@ -42,7 +42,7 @@ public class ScheduleController
         schedule.sundayOut=df.parse(sundayOut);
         try
         { 
-            schedule=scheduleService.addSchedule(schedule, driverId);
+            schedule=scheduleService.addSchedule(schedule, nationalId);
             modelAndView.addObject("message","Schedule added: "+ schedule.scheduleId);
         }
         catch(Exception e)
