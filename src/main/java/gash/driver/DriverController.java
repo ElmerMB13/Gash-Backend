@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import gash.truck.Truck;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -33,16 +34,15 @@ public class DriverController
     @RequestParam String birthDate, @RequestParam String telephoneNumber, @RequestParam Integer truckId)
     {
         ModelAndView modelAndView = new ModelAndView("driver");
-        Driver driver = new Driver(nationalId, driverName, birthDate, telephoneNumber);
-        driver.truck.setTruckId(truckId);
+        Driver driver = new Driver(nationalId, driverName, birthDate, telephoneNumber, truckId);
         try
         {
-            driver = driverService.addDriver(driver);
+            driverService.addDriver(driver);
             modelAndView.addObject("message","Driver added: "+ driver.driverName);
         }
         catch(Exception e)
         {
-            modelAndView.addObject("message", "Failed to add driver: "+ driver.driverName);
+            modelAndView.addObject("message", "Failed to add driver: " + driver.driverName);
             throw e;
         }
         return modelAndView;

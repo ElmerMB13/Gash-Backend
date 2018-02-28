@@ -3,6 +3,8 @@ package gash.driver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.io.*;
+
 
 @Service
 public class DriverService {
@@ -11,7 +13,11 @@ public class DriverService {
     DriverRepository driverRepository;
 
     public Driver addDriver(Driver driver) {
+      try {
         driverRepository.save(driver);
+      }catch(Exception ex) {
+        System.out.println(ex);
+      }
         return driver;
     }
 

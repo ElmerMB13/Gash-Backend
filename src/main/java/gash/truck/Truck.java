@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import java.util.Date;
 import javax.persistence.Column;
+import gash.driver.Driver;
+import javax.persistence.OneToOne;
 
 
 
@@ -24,60 +26,101 @@ public class Truck
     @Column(nullable = true)
     private Date lastUpdatedDateTime;
 
-    public Integer getTruckId() {
-        return truckId;
-    }
 
-    public void setTruckId(Integer truckId) {
-        this.truckId = truckId;
-    }
 
-    public String getTruckNumber() {
-        return truckNumber;
-    }
+	/**
+	* Returns value of truckId
+	* @return
+	*/
+	public Integer getTruckId() {
+		return truckId;
+	}
 
-    public void setTruckNumber(String truckNumber) {
-        this.truckNumber = truckNumber;
-    }
+	/**
+	* Sets new value of truckId
+	* @param
+	*/
+	public void setTruckId(Integer truckId) {
+		this.truckId = truckId;
+	}
 
-    public String getTruckMake() {
-        return truckMake;
-    }
+	/**
+	* Returns value of truckNumber
+	* @return
+	*/
+	public String getTruckNumber() {
+		return truckNumber;
+	}
 
-    public void setTruckMake(String truckMake) {
-        this.truckMake = truckMake;
-    }
+	/**
+	* Sets new value of truckNumber
+	* @param
+	*/
+	public void setTruckNumber(String truckNumber) {
+		this.truckNumber = truckNumber;
+	}
 
-    public String getTruckModel() {
-        return truckModel;
-    }
+	/**
+	* Returns value of truckMake
+	* @return
+	*/
+	public String getTruckMake() {
+		return truckMake;
+	}
 
-    public void setTruckModel(String truckModel) {
-        this.truckModel = truckModel;
-    }
+	/**
+	* Sets new value of truckMake
+	* @param
+	*/
+	public void setTruckMake(String truckMake) {
+		this.truckMake = truckMake;
+	}
 
-    public int getTruckYear() {
-        return truckYear;
-    }
+	/**
+	* Returns value of truckModel
+	* @return
+	*/
+	public String getTruckModel() {
+		return truckModel;
+	}
 
-    public void setTruckYear(int truckYear) {
-        this.truckYear = truckYear;
-    }
+	/**
+	* Sets new value of truckModel
+	* @param
+	*/
+	public void setTruckModel(String truckModel) {
+		this.truckModel = truckModel;
+	}
 
-    public Date getLastUpdatedDateTime() {
-        return lastUpdatedDateTime;
-    }
+	/**
+	* Returns value of truckYear
+	* @return
+	*/
+	public int getTruckYear() {
+		return truckYear;
+	}
 
-    public void setLastUpdatedDateTime(Date lastUpdatedDateTime) {
-        this.lastUpdatedDateTime = lastUpdatedDateTime;
-    }
+	/**
+	* Sets new value of truckYear
+	* @param
+	*/
+	public void setTruckYear(int truckYear) {
+		this.truckYear = truckYear;
+	}
 
-     public Truck(){}
-     public Truck(String truckNumber, String truckMake, String truckModel, int truckYear, Date lastUpdatedDateTim)
-     {
-         this.truckNumber = truckNumber;
-         this.truckMake = truckMake;
-         this.truckModel = truckModel;
-         this.truckYear = truckYear;
-     }
+	/**
+	* Returns value of lastUpdatedDateTime
+	* @return
+	*/
+	public Date getLastUpdatedDateTime() {
+		return lastUpdatedDateTime;
+	}
+
+	/**
+	* Sets new value of lastUpdatedDateTime
+	* @param
+	*/
+	public void setLastUpdatedDateTime(Date lastUpdatedDateTime) {
+		this.lastUpdatedDateTime = lastUpdatedDateTime;
+	}
 }
