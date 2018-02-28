@@ -31,7 +31,7 @@ public class DriverController
 
     @RequestMapping("/addDriver")
     public ModelAndView addDriver(@RequestParam(value="driverName") String driverName, @RequestParam String nationalId,
-    @RequestParam String birthDate, @RequestParam String telephoneNumber, @RequestParam Integer truckId)
+    @RequestParam String birthDate, @RequestParam String telephoneNumber)
     {
         ModelAndView modelAndView = new ModelAndView("driver");
         Driver driver = new Driver(nationalId, driverName, birthDate, telephoneNumber, truckId);

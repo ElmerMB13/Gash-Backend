@@ -1,6 +1,5 @@
 package gash.driver;
 
-import gash.truck.Truck;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
