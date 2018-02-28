@@ -19,7 +19,7 @@ import java.util.Date;
 public class Driver
 {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     int driverId;
 
     @Column(nullable = true)
