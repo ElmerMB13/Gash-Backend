@@ -23,7 +23,8 @@ public class Schedule
     Date wednesdayEntrance;
     Date thursdayEntrance;
     Date fridayEntrance;
-    Date saturdayEntrance;     Date sundayEntrance;
+    Date saturdayEntrance;     
+    Date sundayEntrance;
     Date mondayOut;
     Date tuesdayOut;
     Date wednesdayOut;

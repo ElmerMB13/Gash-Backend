@@ -8,6 +8,18 @@ import java.sql.Connection;
 public class RouteService
 {
     @Autowired
-    RouteRepository routeRepository;
-    Connection conn= null;
+    RouteRepository routeRepository;  
+
+    public Route addRoute(Route route)
+    {
+        try
+        {
+            routeRepository.save(route);
+        }
+        catch(Exception e)
+        {
+            throw e;
+        }
+        return route;
+    }
 }
